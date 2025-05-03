@@ -9,8 +9,11 @@ WORKDIR /app
 # Copy src python files
 COPY classify.py train.py data_preload.py utils.py requirements.txt ./
 
+# Upgrade pip to a compatible version
+RUN python -m pip install --upgrade "pip<21.0"
+
 # Installing python dependencies
-RUN pip install --no-cache-dir --no-deps --no-require-hashes -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # create directories for models and data
 RUN mkdir -p /app/data
