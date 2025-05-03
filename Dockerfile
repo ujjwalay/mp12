@@ -7,7 +7,7 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Copy src python files
-COPY classify.py train.py data_preload.py utils.py requirements.txt ./
+COPY classify.py train.py data_preload.py utils.py models.py requirements.txt ./
 
 # Upgrade pip to a compatible version
 RUN python -m pip install --upgrade "pip<21.0"
